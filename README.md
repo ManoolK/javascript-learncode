@@ -1,0 +1,3 @@
+# javascript-learncode
+
+Learning notes.
