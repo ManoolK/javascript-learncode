@@ -53,4 +53,3 @@ console.log(5 + 6 + '4' + 9 - 4 - 2);  // tricky
 
 // === or !== - strict equality operators, whithout coercions;
 // == or != - loose equality operators, with coercion.
-
