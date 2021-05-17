@@ -1,4 +1,5 @@
-
+// Fundamentals. Part 1
+/*
 const country = "Russia";
 const continent = "Eurasia";
 let russianPopulation = 144.4;
@@ -42,4 +43,39 @@ if (numNeighbours === 1) {
     console.log('No borders')
 }
 
-// 7
+const speaksEnglish = language === "english";
+if (speaksEnglish && (russianPopulation <= 50) && !isIsland) {
+    console.log(`You should live in ${country} :)`)
+} else {
+    console.log(`${country} does not meet your criteria :(`)
+}
+
+switch (language) {
+    case 'chinese':
+    case 'mandarin':
+        console.log('MOST number of native speakers!');
+        break;
+    case 'spanish':
+        console.log('2nd place in number of native speakers');
+        break;
+    case 'english':
+        console.log('3rd place');
+        break;
+    case 'hindi':
+        console.log('Number 4');
+        break;
+    case 'arabic':
+        console.log('5th most spoken language');
+        break;
+    default:
+        console.log('Great language too :D');
+}
+
+console.log(`${country} population is ${russianPopulation > 33 ? 'above' : 'below'} average.`);
+
+// Fundamentals. Part 2
+
+
+*/
+
+// 15
