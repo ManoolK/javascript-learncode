@@ -72,3 +72,26 @@ const tip = bill * tipPercent;
 console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`);
 */
 
+// CC #2.1
+
+const calcAverage = (num1, num2, num3) => (num1 + num2 + num3) / 3;
+
+const avgDolphins = calcAverage(44, 23, 71);  // Data 1
+const avgKoalas = calcAverage(65, 54, 49);  // Data 1
+// const avgDolphins = calcAverage(85, 54, 41);  // Data 2
+// const avgKoalas = calcAverage(23, 34, 27);  // Data 2
+
+function checkWinner(avgDolphins, avgKoalas) {
+    if (avgDolphins > avgKoalas * 2) {
+        console.log(`Dolphins win (${avgDolphins} vs. ${avgKoalas}).`);
+    } else if (avgKoalas > avgDolphins * 2) {
+        console.log(`Koalas win (${avgKoalas} vs. ${avgDolphins}).`);
+    } else {
+        console.log(`No team wins.`);
+    }
+}
+
+// Data 1
+checkWinner(avgDolphins, avgKoalas);
+// Data 2
+checkWinner(calcAverage(85, 54, 41), calcAverage(23, 34, 27));

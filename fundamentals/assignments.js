@@ -74,8 +74,45 @@ switch (language) {
 console.log(`${country} population is ${russianPopulation > 33 ? 'above' : 'below'} average.`);
 
 // Fundamentals. Part 2
-
-
 */
+function describeCountry(country, population, capitalCity) {
+    return `${country} has ${population} million people and its capital city is ${capitalCity}.`;
+}
+
+const rusDesc = describeCountry('Russia', 144.4, 'Moscow');
+console.log(rusDesc);
+
+const finDesc = describeCountry('Finland', 6, 'Helsinki');
+console.log(finDesc);
+
+const usaDesc = describeCountry('USA', 332.9, 'Washington');
+console.log(usaDesc);
+
+// Function declaration
+function percentageOfWorld1(population) {
+    return population / 7900 * 100;
+}
+
+// Function expression
+const percentageOfWorld2 = function (population) {
+    return population / 7900 * 100;
+}
+
+// Arrow function
+const percentageOfWorld3 = population => population / 7900 * 100;
+
+console.log(`China has 1441 million people, so it's about ${percentageOfWorld1(1441)} of the world population.`);
+
+console.log(`China has 1441 million people, so it's about ${percentageOfWorld2(1441)} of the world population.`);
+
+console.log(`China has 1441 million people, so it's about ${percentageOfWorld3(1441)} of the world population.`);
+
+
+function describePopulation(country, population) {
+    const percent = percentageOfWorld1(population);
+    return `${country} has ${population} million people, which is about ${percent} of the world.`;
+}
+
+console.log(describePopulation('China', 1441));
 
 // 15
