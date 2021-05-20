@@ -74,7 +74,7 @@ switch (language) {
 console.log(`${country} population is ${russianPopulation > 33 ? 'above' : 'below'} average.`);
 
 // Fundamentals. Part 2
-*/
+
 function describeCountry(country, population, capitalCity) {
     return `${country} has ${population} million people and its capital city is ${capitalCity}.`;
 }
@@ -87,12 +87,12 @@ console.log(finDesc);
 
 const usaDesc = describeCountry('USA', 332.9, 'Washington');
 console.log(usaDesc);
-
+*/
 // Function declaration
 function percentageOfWorld1(population) {
     return population / 7900 * 100;
 }
-
+/*
 // Function expression
 const percentageOfWorld2 = function (population) {
     return population / 7900 * 100;
@@ -114,5 +114,46 @@ function describePopulation(country, population) {
 }
 
 console.log(describePopulation('China', 1441));
+*/
+const populations = [144.4, 6, 332.9, 1441];
+// console.log(populations.length === 4);
 
-// 15
+const percentages = [percentageOfWorld1(populations[0]), percentageOfWorld1(populations[1]), percentageOfWorld1(populations[2]), percentageOfWorld1(populations[3])];
+// console.log(percentages);
+
+const neighbours = ['Finland', 'Belarus', 'Ukrain', 'China', 'USA'];
+
+neighbours.push('Utopia');
+neighbours.pop();
+if (!neighbours.includes('Germany')) {
+    // console.log('Probably not a central Europian country :D');
+}
+neighbours[neighbours.indexOf('China')] = "People's Republic of China";
+// console.log(neighbours);
+
+const myCountry = {
+    country: 'Russia',
+    capital: 'Moscow',
+    language: 'russian',
+    population: 144.4,
+    neighbours: neighbours,
+
+    describe: function () {
+        console.log(`${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbours.length} neighbouring countrues and a capital called ${this.capital}.`);
+    },
+
+    checkIsland: function () {
+        this.isIsland = this.neighbours = 0 ? true : false;
+        return this.isIsland;
+    }
+}
+
+myCountry.describe();
+
+myCountry.population += 2;
+console.log(myCountry.population);
+myCountry['population'] -= 2;
+console.log(myCountry.population);
+console.log(`Is ${myCountry.country} an island? ${myCountry.checkIsland()}`);
+
+// 16

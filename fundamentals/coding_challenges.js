@@ -70,7 +70,6 @@ const tipPercent = bill >= 50 && bill <= 300 ? 0.15 : 0.2;
 const tip = bill * tipPercent;
 
 console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`);
-*/
 
 // CC #2.1
 
@@ -95,3 +94,48 @@ function checkWinner(avgDolphins, avgKoalas) {
 checkWinner(avgDolphins, avgKoalas);
 // Data 2
 checkWinner(calcAverage(85, 54, 41), calcAverage(23, 34, 27));
+
+// CC #2.2
+
+const calcTip = function (billValue) {
+    return billValue >= 50 && billValue <= 300 ? billValue * 0.15 : billValue * 0.2;
+}
+
+const calcTotal = (bill, tip) => bill + tip;
+
+// console.log(calcTip(100));
+
+const bills = [125, 555, 44];
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+const totals = [calcTotal(bills[0], tips[0]), calcTotal(bills[1], tips[1]), calcTotal(bills[2], tips[2])];
+
+console.log(`Bills: ${bills}`);
+console.log(`Tips: ${tips}`);
+console.log(`Total: ${totals}`);
+*/
+
+// CC #2.3
+
+const mark = {
+    fullName: 'Mark Miller',
+    mass: 78,
+    height: 1.69,
+
+    calcBMI: function () {
+        this.bmi = this.mass / this.height ** 2;
+        return this.bmi;
+    }
+}
+
+const john = {
+    fullName: 'John Smith',
+    mass: 92,
+    height: 1.95,
+
+    calcBMI: function () {
+        this.bmi = this.mass / this.height ** 2;
+        return this.bmi;
+    }
+}
+
+console.log(`${john.fullName}'s BMI (${john.calcBMI()}) is ${john.bmi > mark.calcBMI() ? 'higher' : 'lower'} than ${mark.fullName}'s ${mark.bmi}!`);
