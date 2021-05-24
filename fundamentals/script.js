@@ -61,9 +61,10 @@ console.log(drink);
 */
 
 'use strict';
-/**/
+
 // arrays
 const friends = ['Elena', 'Anna', 'Rita'];
+/*
 console.log(friends[0]);
 
 const y = new Array(1991, 1984, 2008);
@@ -78,6 +79,7 @@ friends.shift();  // removes the first element.
 
 console.log(`Index of 'Anna' in array is ${friends.indexOf('Anna')}`);
 console.log(`Is 'Anna' in my friends? ${friends.includes('Anna')}`);
+*/
 
 const oxana = {
     firstName: 'Oxana',
@@ -96,9 +98,21 @@ const oxana = {
     },
 }
 
+/*
 console.log(`${oxana.firstName} has ${oxana.friends.length} friends, and her best friend is called ${oxana.friends[0]}.`);
 
 console.log(oxana.calcAge());
 console.log(oxana.age);
 
 console.log(oxana.getSummary());
+
+for (let i = 0; i < friends.length; i++) {
+    console.log(`FOR: ${friends[i]}`);
+}
+
+let i = 0;
+while (i < friends.length) {
+    console.log(`WHILE: ${friends[i]}`);
+    i++;
+}
+*/

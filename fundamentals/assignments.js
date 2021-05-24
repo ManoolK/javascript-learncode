@@ -156,4 +156,27 @@ myCountry['population'] -= 2;
 console.log(myCountry.population);
 console.log(`Is ${myCountry.country} an island? ${myCountry.checkIsland()}`);
 
-// 16
+// for (let vtr = 1; vtr <= 50; vtr++) {
+//     console.log(`Voter number ${vtr} is currently voting.`);
+// }
+const percentages2 = [];
+for (let i = 0; i < populations.length; i++) {
+    percentages2.push(percentageOfWorld1(populations[i]));
+}
+// console.log(percentages2);
+
+const listOfNeighbours = [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden', 'Russia']];
+for (let i = 0; i < listOfNeighbours.length; i++) {
+    for (let j = 0; j < listOfNeighbours[i].length; j++) {
+        console.log(`Neighbour: ${listOfNeighbours[i][j]}`)
+    }
+}
+
+const percentages3 = [];
+let i = 0;
+while (i < populations.length) {
+    percentages3.push(percentageOfWorld1(populations[i]));
+    i++;
+}
+// console.log(percentages3);
+// 17
