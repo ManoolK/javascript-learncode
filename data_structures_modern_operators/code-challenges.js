@@ -64,4 +64,30 @@ printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
 printGoals(...game.scored);
 
 // The team is more likely to win.
-console.log((team1 < team2 && 'team1') || (team2 < team1 && 'team2'));
+console.log(
+  'The most possible winning team is',
+  (team1 < team2 && game.team1) || (team2 < team1 && game.team2)
+);
+
+// CC #2
+for (const item of game.scored.entries()) {
+  console.log(`Goal ${item[0] + 1}: ${item[1]}`);
+}
+
+let sumOdds = 0;
+const odds = Object.values(game.odds);
+for (const odd of odds) {
+  sumOdds += odd;
+}
+console.log(`The average odd is ${sumOdds / odds.length}.`);
+
+for (const [key, odd] of Object.entries(game.odds)) {
+  const teamStr = game[key] ? `victory ${game[key]}` : 'draw';
+  console.log(`Odd of ${teamStr}: ${odd}`);
+}
+
+const scores = {};
+for (const item of game.scored) {
+  scores[item] = 1 + (scores[item] || 0);
+}
+console.log(scores);
