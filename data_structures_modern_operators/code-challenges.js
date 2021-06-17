@@ -90,4 +90,36 @@ const scores = {};
 for (const item of game.scored) {
   scores[item] = 1 + (scores[item] || 0);
 }
-console.log(scores);
+// console.log(scores);
+
+// CC #3
+const gameEvents = new Map([
+  [17, '⚽ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🔶 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽ GOAL'],
+  [80, '⚽ GOAL'],
+  [92, '🔶 Yellow card'],
+]);
+
+const events = [...new Set(gameEvents.values())];
+console.log(events);
+
+gameEvents.delete(64);
+// console.log(gameEvents);
+
+const times = [...gameEvents.keys()];
+console.log(
+  `An event happened, on average, every ${
+    times.pop() / gameEvents.size
+  } minutes.`
+);
+
+for (const [key, gameEvent] of gameEvents) {
+  console.log(`[${key <= 45 ? 'FIRST' : 'SECOND'} HALF] ${key}: ${gameEvent}`);
+}

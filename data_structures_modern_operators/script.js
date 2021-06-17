@@ -128,3 +128,49 @@ const values = Object.values(openingHours);
 // for (const [key, { open, close }] of Object.entries(openingHours)) {
 //   console.log(`On ${key} we open at ${open} and close at ${close}.`);
 // }
+
+// sets
+const orderSet = new Set(['Pasta', 'Pizza', 'Pasta', 'Risotto']);
+// console.log(orderSet.size);
+// console.log(orderSet.has('Bread'));
+orderSet.add('Chiabatta');
+orderSet.delete('Risotto');
+// orderSet.clear();
+// for (const order of orderSet) console.log(order);
+
+// maps
+const cafe = new Map(); // input: Array of arrays, Object
+cafe.set('name', 'Coffee Bean');
+cafe.set(1, 'Chocolattie');
+cafe
+  .set('categories', ['Italian', 'Coffee'])
+  .set('open', 11)
+  .set('close', 20)
+  .set('loyal', 1)
+  .set(true, 'We are open for you')
+  .set(false, 'We are closed, sorry');
+console.log(cafe.set(2, "Mike's Pastry"));
+
+console.log(cafe.get('name'));
+
+const time = 21;
+console.log(cafe.get(time > cafe.get('open') && time < cafe.get('close')));
+console.log(cafe.has('open'));
+// cafe.delete(2);
+// cafe.clear();
+console.log(cafe.size);
+
+const arr1 = [1, 2];
+cafe.set(arr1, 'Test');
+console.log(cafe.get(arr1));
+
+for (const [key, value] of cafe) {
+  if (typeof key === 'number') {
+    console.log(`Сoffee shops ${key}: ${value}`);
+  }
+}
+// const answer = Number(prompt('What cafe do you like?'));
+// console.log(cafe.get(answer === cafe.get('loyal')));
+
+// Convert map to array
+// const arr3 = [...cafe];
