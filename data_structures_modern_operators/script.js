@@ -149,20 +149,20 @@ cafe
   .set('loyal', 1)
   .set(true, 'We are open for you')
   .set(false, 'We are closed, sorry');
-console.log(cafe.set(2, "Mike's Pastry"));
+// console.log(cafe.set(2, "Mike's Pastry"));
 
-console.log(cafe.get('name'));
+// console.log(cafe.get('name'));
 
 const time = 21;
-console.log(cafe.get(time > cafe.get('open') && time < cafe.get('close')));
-console.log(cafe.has('open'));
+// console.log(cafe.get(time > cafe.get('open') && time < cafe.get('close')));
+// console.log(cafe.has('open'));
 // cafe.delete(2);
 // cafe.clear();
-console.log(cafe.size);
+// console.log(cafe.size);
 
 const arr1 = [1, 2];
 cafe.set(arr1, 'Test');
-console.log(cafe.get(arr1));
+// console.log(cafe.get(arr1));
 
 for (const [key, value] of cafe) {
   if (typeof key === 'number') {
@@ -174,3 +174,50 @@ for (const [key, value] of cafe) {
 
 // Convert map to array
 // const arr3 = [...cafe];
+
+// Strings
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+// console.log(airline.indexOf('r'));
+// console.log(airline.lastIndexOf('r'));
+
+// console.log(airline.slice(4));
+// console.log(airline.slice(4, 7)); // before last index
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1);
+  console.log(s === 'B' || s === 'E' ? true : false);
+};
+
+// checkMiddleSeat('11B');
+
+// console.log(airline.toLowerCase()); // toUpperCase
+
+const loginEmail = '  Email@Gmail.Com  \n';
+const normalizedEmail = loginEmail.trim().toLowerCase();
+// console.log(normalizedEmail);
+
+// replacing
+const announcement =
+  'All passengers come to boarding door 23. Boarding door 23!';
+// console.log(announcement.replace('door', 'gate')); // replaceAll
+// another variant
+// console.log(announcement.replace(/door/g, 'gate')); // /str/g - regular explression
+
+// Booleans
+const plane2 = 'A320neo';
+// console.log(plane2.includes(plane));
+// console.log(plane2.startsWith('A32')); // endsWith
+
+// .split('divider')
+// .join('divider')
+
+// Padding
+const msg = 'Go to gate 23!';
+// console.log(msg.padStart(25, '=').padEnd('35', '='));
+
+// Repeat
+const msg2 = 'All Departures Delayed....';
+// console.log(msg2.repeat(5));

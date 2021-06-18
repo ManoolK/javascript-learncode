@@ -90,7 +90,7 @@ const scores = {};
 for (const item of game.scored) {
   scores[item] = 1 + (scores[item] || 0);
 }
-// console.log(scores);
+console.log(scores);
 
 // CC #3
 const gameEvents = new Map([
@@ -111,7 +111,7 @@ const events = [...new Set(gameEvents.values())];
 console.log(events);
 
 gameEvents.delete(64);
-// console.log(gameEvents);
+console.log(gameEvents);
 
 const times = [...gameEvents.keys()];
 console.log(
@@ -123,3 +123,5 @@ console.log(
 for (const [key, gameEvent] of gameEvents) {
   console.log(`[${key <= 45 ? 'FIRST' : 'SECOND'} HALF] ${key}: ${gameEvent}`);
 }
+
+// CC #4 19
