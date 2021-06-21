@@ -221,3 +221,29 @@ const msg = 'Go to gate 23!';
 // Repeat
 const msg2 = 'All Departures Delayed....';
 // console.log(msg2.repeat(5));
+
+// String methods practice
+const flights_log =
+  '_Delayed_Departure;fao89478237;txl3278946770;11:25\
++_Arrival;bru8972384877;fao89478237;11:45\
++_Delayed_Arrival;hel487903384;fao89478237;12:05\
++_Departure;fao89478237;lis4783958945;12:30';
+
+// 🔴 Delayed Departure from FAO to TXL (11h25)
+//               Arrival from BRU to FAO (11h45)
+//   🔴 Delayed Arrival from HEL to FAO (12h05)
+//             Departure from FAO to LIS (12h30)
+
+const getCode = str => str.slice(0, 3).toUpperCase();
+
+for (const flight of flights_log.split('+')) {
+  const [status, from, to, time] = flight.split(';');
+  const output = `${status.includes('Delayed') ? '🔴' : ''}${status.replaceAll(
+    '_',
+    ' '
+  )} from ${getCode(from)} to ${getCode(to)} (${time.replace(
+    ':',
+    'h'
+  )})`.padStart(44);
+  console.log(output);
+}

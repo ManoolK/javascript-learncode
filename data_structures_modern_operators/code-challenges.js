@@ -123,5 +123,3 @@ console.log(
 for (const [key, gameEvent] of gameEvents) {
   console.log(`[${key <= 45 ? 'FIRST' : 'SECOND'} HALF] ${key}: ${gameEvent}`);
 }
-
-// CC #4 19
