@@ -133,3 +133,27 @@ const addTax2 = function(rate) {
 };
 const addVAT2 = addTax2(0.2);
 // console.log(addVAT2(100));
+
+// IIFE - Immedeately Invoked Function Expression
+(function() {
+  console.log('This will never run again');
+})();
+
+(() => console.log('This will ALSO never run again'))();
+
+// Closures
+const secureBooking = function() {
+  let passengerCount = 0;
+
+  return function() {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  }
+};
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+// console.dir(booker);
