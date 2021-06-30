@@ -71,7 +71,7 @@ const displayMovements = function (movements) {
       <div class="movements__type movements__type--${typeMovement}">${
       index + 1
     } ${typeMovement}</div>
-      <div class="movements__value">${mov}</div>
+      <div class="movements__value">${mov}€</div>
     </div>
     `;
 
@@ -85,6 +85,19 @@ const calcDisplayBalance = function (movements) {
   labelBalance.textContent = `${movements.reduce((acc, mov) => acc + mov, 0)}€`;
 };
 calcDisplayBalance(account1.movements);
+
+const calcDisplaySummary = function (movements) {
+  const deposits = movements.filter(mov => mov > 0);
+  labelSumIn.textContent = `${deposits.reduce((acc, mov) => acc + mov, 0)}€`;
+  labelSumOut.textContent = `${movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + Math.abs(mov), 0)}€`;
+  labelSumInterest.textContent = `${deposits
+    .map(dep => (dep * 1.2) / 100)
+    .filter(int => int >= 1)
+    .reduce((acc, int) => acc + int, 0)}€`;
+};
+calcDisplaySummary(account1.movements);
 
 const createUserNames = function (accs) {
   accs.forEach(function (acc) {
