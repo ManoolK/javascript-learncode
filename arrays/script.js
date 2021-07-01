@@ -56,3 +56,7 @@ const maxMovement = movements.reduce(
   movements[0]
 );
 // console.log(maxMovement);
+
+// Find - return the first element
+const firstWithdrawal = movements.find(mov => mov < 0);
+// console.log(firstWithdrawal);
