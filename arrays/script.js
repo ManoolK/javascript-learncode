@@ -87,6 +87,6 @@ const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
 console.log(owners.sort()); // mutates the original array and alphabetically
 // not alphabetically
 movements.sort((a, b) => a - b); // ascending
-console.log(movements);
+// console.log(movements);
 movements.sort((a, b) => b - a); // descending
-console.log(movements);
+// console.log(movements);

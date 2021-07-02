@@ -163,7 +163,7 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
-//
+// Loan
 btnLoan.addEventListener('click', function (e) {
   e.preventDefault();
 
