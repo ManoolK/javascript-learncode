@@ -60,3 +60,33 @@ const maxMovement = movements.reduce(
 // Find - return the first element
 const firstWithdrawal = movements.find(mov => mov < 0);
 // console.log(firstWithdrawal);
+
+// Some and Every
+// console.log(movements.includes(450)); // equality
+// console.log(movements.some(mov => mov > 0)); // condition
+// console.log(movements.every(mov => mov !== 0)); // for all elements in array
+
+// flat and flatMap
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+// console.log(arr.flat()); // 1 level deep by default
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+// console.log(arrDeep.flat(2));
+
+const objs = [
+  { movement: [1, 2, 3] },
+  { movement: [1, 2, 3] },
+  { movement: [1, 2, 3] },
+];
+const overalBalance = objs
+  .flatMap(acc => acc.movement) // always 1 level deep
+  .reduce((acc, mov) => acc + mov, 0);
+// console.log(overalBalance);
+
+// sorting
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+console.log(owners.sort()); // mutates the original array and alphabetically
+// not alphabetically
+movements.sort((a, b) => a - b); // ascending
+console.log(movements);
+movements.sort((a, b) => b - a); // descending
+console.log(movements);
