@@ -7,7 +7,7 @@ This repository contains notes and projects I've made on the JS learning course.
 [Project #3. Pig game.](/project_pig_game)   
 [Project #4. Bankist.](/project_bankist)   
 
-for VS Code   
+#### for VS Code   
 	formatter: Prettier (opinionated)
 		configure
 	Set code-snippets
@@ -15,27 +15,27 @@ for VS Code
 	TODO Highlight
 	Live server
 	
-Node js  
+#### Node js  
 	npm install live-server -g
 	live-server
 	npm install npm@latest -g					- install latest version npm and node
 	
-4 steps to solve any problem   
-	1. Make sure you 100% understand the problem. Ask the right questions to get a clear picture of the problem.
-	2. Divide and conquer: Break a big problem into smaller sub-problems.
-	3. Don't be afraid to do as much research as you have to.
-	4. For bigger problems, write pseudo-code before writing the actual code.
+### 4 steps to solve any problem   
+1. Make sure you 100% understand the problem. Ask the right questions to get a clear picture of the problem.
+2. Divide and conquer: Break a big problem into smaller sub-problems.
+3. Don't be afraid to do as much research as you have to.
+4. For bigger problems, write pseudo-code before writing the actual code.
 	
-DOM - Document Object Model  
+#### DOM - Document Object Model  
 	Structured representation of HTML document.
 	
-WEB APIs - libraries, also written in JS.  
+#### WEB APIs - libraries, also written in JS.  
 	DOM Methods and Properties are a part of it.
 		Can interact with JS.
 	Timers
 	Fetch
 	
-JS  
+#### JS  
 	High-level  
 		Developer does NOT have to worry about resources, everything happens automatically
 		But the programs are not so fast and optimised as low-level programs (like C).
@@ -63,7 +63,7 @@ JS
 		By using event loop: takes long running tasks, executes them in the "background", 
 			and puts them back in the main thread once they are finished.
 
-JS Engine  
+#### JS Engine  
 	simply it is a program that executes JS code.  
 		V8 Engine (google chrome, Node js)
 	Contains:  
@@ -96,18 +96,18 @@ JS Engine
 		|
 		...
 		
-JS Runtime in the browser  
-	- JS Engine
-	- WEB APIs (in Browser)
+### JS Runtime in the browser  
+- JS Engine
+- WEB APIs (in Browser)  
 		DOM, Timers, Fetch API, ...
 		Functionalities provided to the engine, accessible on window object.
-	- C++ Bindings & Thread pool (in Node JS)
-	- Callback queue
+- C++ Bindings & Thread pool (in Node JS)
+- Callback queue  
 		click, timer, data, ...
-	- Event loop
+- Event loop  
 		Takes the callback function from the callback queue and puts them in the call stack.
 
-Execution  
+#### Execution  
 	Creation of global execution context.
 	Execution of top-level code.
 	Execution of functions and waiting for callbacks (ex.: click event).
@@ -118,7 +118,7 @@ Execution
 			Order in which functions are written in the code.
 		this keyword
 
-Scope chain  
+#### Scope chain  
 	Scoping: How our program's variables are organized and accessed by the JS enjine.
 	Lexical scoping: Scoping is controlled by placement of functions and blocks in the code.
 	Scope: Space or environment in which a certain varible is declared. 
@@ -141,7 +141,7 @@ Scope chain
 		VS.
 		Order in which functions were CALLED.
 	
-Variable environment  
+#### Variable environment  
 	Hoisting: Makes some types of variables sccessible/usable in the code before they are actually declered.
 		"Variables lifted to the top of their scope."
 		Before execution, code is scanned for variable declarations, and for each variablee, 
@@ -155,7 +155,7 @@ Variable environment
 		- Makes it easier to avoid and catch errors.
 		- Makes const variables actually work.
 	
-this keyword  
+### *this* keyword  
 	Special variable tha is created for every execution context (every function).
 	Takes the value of (points to) the "owner" of the function in which the this keyword is used.
 	this does NOT point to the function itself, and also NOT the its vaiable environment!
@@ -164,10 +164,10 @@ this keyword
 	- arrow function: window (
 	- inside of the method -> function: object of the owner (method)
 
-arguments keyword  
+#### arguments keyword  
 	arrow function does not have this keyword
 	
-Primitives VS. Objects (Reference Types)  
+#### Primitives VS. Objects (Reference Types)  
 	Primitives  
 		Number
 		String
@@ -192,9 +192,9 @@ Primitives VS. Objects (Reference Types)
 	
 	Object.assign({}, copied_varible)	(except a nested objects)
 
-IIFE - Immedeately Invoked Function Expressions  
+#### IIFE - Immedeately Invoked Function Expressions  
 
-Closures  	
+#### Closures  	
 	is the closed-over varible environment of the execution context in which a function was created,
 		even after that execution context is gone.
 	Happens automatically in sertain situations.
