@@ -156,9 +156,9 @@ This repository contains notes and projects I've made on the JS learning course.
 		- Makes const variables actually work.
 	
 ### *this* keyword  
-	Special variable tha is created for every execution context (every function).
-	Takes the value of (points to) the "owner" of the function in which the this keyword is used.
-	this does NOT point to the function itself, and also NOT the its vaiable environment!
+	Special variable that is created for every execution context (every function).
+	Takes the value of (points to) the "owner" of the function in which the *this* keyword is used.
+	*this* does NOT point to the function itself, and also NOT the its vaiable environment!
 	- global scope: window
 	- regular function: undefined (in strict mode)
 	- arrow function: window (
@@ -203,3 +203,4 @@ This repository contains notes and projects I've made on the JS learning course.
 
 Splice - mutates original Array. Delete selected elements.  
 Sort - mutates original Array and works alphabetically.  
+

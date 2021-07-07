@@ -90,3 +90,58 @@ movements.sort((a, b) => a - b); // ascending
 // console.log(movements);
 movements.sort((a, b) => b - a); // descending
 // console.log(movements);
+
+// other ways of creating arrays
+const x = new Array(7); // creates an array with 7 empty elements
+x.fill(2, 3); // mutates the original array
+// console.log(x);
+
+const y = Array.from({ length: 7 }, () => 1);
+// console.log(y);
+
+const z = Array.from({ length: 7 }, (_, i) => i + 1);
+// console.log(z);
+
+// const movUI = Array.from(document.querySelectorAll('.movements__value'), el =>
+//   Number(el.textContent.replace('€', ''))
+// );
+// console.log(movUI);
+
+// nice title
+const convertTitleCase = function (title) {
+  const capitalize = str => str[0].toUpperCase() + str.slice(1);
+  const exceptions = ['a', 'an', 'and', 'the', 'but', 'or', 'on', 'in', 'with'];
+
+  const titleCase = title
+    .toLowerCase()
+    .split(' ')
+    .map(word => (exceptions.includes(word) ? word : capitalize(word)))
+    .join(' ');
+  return titleCase;
+};
+// console.log(convertTitleCase('this is a nice title'));
+// console.log(convertTitleCase('and here is another title with an EXAMPLE'));
+
+// Exercises
+// const bankDepositSum = accounts
+//   .flatMap(acc => acc.movements)
+//   .filter(mov => mov > 0)
+//   .reduce((acc, mov) => acc + mov, 0);
+// // console.log(bankDepositSum);
+
+// const numDeposits1000 = accounts
+//   .flatMap(acc => acc.movements)
+//   .reduce((acc, mov) => (mov >= 1000 ? ++acc : acc), 0);
+// // console.log(numDeposits1000);
+
+// const { deposits, withdrawals } = accounts
+//   .flatMap(acc => acc.movements)
+//   .reduce(
+//     (sums, cur) => {
+//       // cur > 0 ? (sums.deposits += cur) : (sums.withdrawals += cur);
+//       sums[cur > 0 ? 'deposits' : 'withdrawals'] += cur;
+//       return sums;
+//     },
+//     { deposits: 0, withdrawals: 0 }
+//   );
+// console.log(deposits, withdrawals);
