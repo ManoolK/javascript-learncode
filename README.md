@@ -204,3 +204,16 @@ This repository contains notes and projects I've made on the JS learning course.
 Splice - mutates original Array. Delete selected elements.  
 Sort - mutates original Array and works alphabetically.  
 
+#### Numbers
+
+Rounding decimals  
+	toFixed return a string!  
+Remainder operator is helpfull to check even/odd.  
+The biggest number: 2 ** 53 - 1 = MAX_SAFE_INTEGER.  
+BIG int - reg. number + 'n' at the end.  
+	Don't mix with regular numbers.  
+	`Math` doesn't work with bigint.  
+
+#### Dates and Times
+
+Months start from 0.  
