@@ -107,7 +107,7 @@ This repository contains notes and projects I've made on the JS learning course.
 - Event loop  
 		Takes the callback function from the callback queue and puts them in the call stack.
 
-#### Execution  
+### Execution  
 	Creation of global execution context.
 	Execution of top-level code.
 	Execution of functions and waiting for callbacks (ex.: click event).
@@ -118,7 +118,7 @@ This repository contains notes and projects I've made on the JS learning course.
 			Order in which functions are written in the code.
 		this keyword
 
-#### Scope chain  
+### Scope chain  
 	Scoping: How our program's variables are organized and accessed by the JS enjine.
 	Lexical scoping: Scoping is controlled by placement of functions and blocks in the code.
 	Scope: Space or environment in which a certain varible is declared. 
@@ -141,7 +141,7 @@ This repository contains notes and projects I've made on the JS learning course.
 		VS.
 		Order in which functions were CALLED.
 	
-#### Variable environment  
+### Variable environment  
 	Hoisting: Makes some types of variables sccessible/usable in the code before they are actually declered.
 		"Variables lifted to the top of their scope."
 		Before execution, code is scanned for variable declarations, and for each variablee, 
@@ -149,25 +149,27 @@ This repository contains notes and projects I've made on the JS learning course.
 		- Using functions before actual declaration.
 		variables created with var will create a window object.
 
-	TDZ - Temporal Dead Zone.
-		Zone before the variable declaration in which we can't use this variable.
-		Cannot access the variable before initialization.
-		- Makes it easier to avoid and catch errors.
-		- Makes const variables actually work.
+TDZ - Temporal Dead Zone.  
+	Zone before the variable declaration in which we can't use this variable.  
+	Cannot access the variable before initialization.  
+- Makes it easier to avoid and catch errors.
+- Makes const variables actually work.
 	
-### *this* keyword  
-	Special variable that is created for every execution context (every function).
-	Takes the value of (points to) the "owner" of the function in which the *this* keyword is used.
-	*this* does NOT point to the function itself, and also NOT the its vaiable environment!
-	- global scope: window
-	- regular function: undefined (in strict mode)
-	- arrow function: window (
-	- inside of the method -> function: object of the owner (method)
+### *this* keyword
 
-#### arguments keyword  
-	arrow function does not have this keyword
+Special variable that is created for every execution context (every function).  
+Takes the value of (points to) the "owner" of the function in which the *this* keyword is used.  
+*this* does NOT point to the function itself, and also NOT the its vaiable environment!  
+- global scope: window
+- regular function: undefined (in strict mode)
+- arrow function: window (
+- inside of the method -> function: object of the owner (method)
+
+### arguments keyword  
+
+arrow function does not have this keyword
 	
-#### Primitives VS. Objects (Reference Types)  
+### Primitives VS. Objects (Reference Types)  
 	Primitives  
 		Number
 		String
@@ -192,9 +194,9 @@ This repository contains notes and projects I've made on the JS learning course.
 	
 	Object.assign({}, copied_varible)	(except a nested objects)
 
-#### IIFE - Immedeately Invoked Function Expressions  
+### IIFE - Immedeately Invoked Function Expressions  
 
-#### Closures  	
+### Closures  	
 	is the closed-over varible environment of the execution context in which a function was created,
 		even after that execution context is gone.
 	Happens automatically in sertain situations.
@@ -204,7 +206,7 @@ This repository contains notes and projects I've made on the JS learning course.
 Splice - mutates original Array. Delete selected elements.  
 Sort - mutates original Array and works alphabetically.  
 
-#### Numbers
+### Numbers
 
 Rounding decimals  
 	toFixed return a string!  
@@ -214,6 +216,20 @@ BIG int - reg. number + 'n' at the end.
 	Don't mix with regular numbers.  
 	`Math` doesn't work with bigint.  
 
-#### Dates and Times
+### Dates and Times
 
 Months start from 0.  
+
+#### Internationalization
+
+Intl  
+	options: style {unit, percent, currency}  
+			 day, month, year, ...  
+
+#### Timers
+
+Timeout in ms.  
+
+setTimeout  
+setInterval  
+
