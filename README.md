@@ -208,13 +208,17 @@ Sort - mutates original Array and works alphabetically.
 
 ### Numbers
 
-Rounding decimals  
+Rounding decimals 
+
 	toFixed return a string!  
+
 Remainder operator is helpfull to check even/odd.  
 The biggest number: 2 ** 53 - 1 = MAX_SAFE_INTEGER.  
 BIG int - reg. number + 'n' at the end.  
+
 	Don't mix with regular numbers.  
 	`Math` doesn't work with bigint.  
+
 
 ### Dates and Times
 
@@ -223,7 +227,9 @@ Months start from 0.
 #### Internationalization
 
 Intl  
+
 	options: style {unit, percent, currency}  
+	
 			 day, month, year, ...  
 
 #### Timers
