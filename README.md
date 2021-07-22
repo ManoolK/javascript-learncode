@@ -5,9 +5,11 @@ This repository contains notes and projects I've made on the JS learning course.
 [Project #1. Guess the number.](/project_guess_number)   
 [Project #2. Modal window.](/project_modal_window)   
 [Project #3. Pig game.](/project_pig_game)   
-[Project #4. Bankist.](/project_bankist)   
+[Project #4. Bankist App.](/project_bankist)   
+[Project #5. Bankist Website.](/project_bankist_website)   
 
-#### for VS Code   
+## for VS Code   
+
 	formatter: Prettier (opinionated)
 		configure
 	Set code-snippets
@@ -15,27 +17,32 @@ This repository contains notes and projects I've made on the JS learning course.
 	TODO Highlight
 	Live server
 	
-#### Node js  
+## Node js  
+
 	npm install live-server -g
 	live-server
 	npm install npm@latest -g					- install latest version npm and node
 	
-### 4 steps to solve any problem   
+## 4 steps to solve any problem   
+
 1. Make sure you 100% understand the problem. Ask the right questions to get a clear picture of the problem.
 2. Divide and conquer: Break a big problem into smaller sub-problems.
 3. Don't be afraid to do as much research as you have to.
 4. For bigger problems, write pseudo-code before writing the actual code.
 	
-#### DOM - Document Object Model  
+## DOM - Document Object Model  
+
 	Structured representation of HTML document.
 	
-#### WEB APIs - libraries, also written in JS.  
+## WEB APIs - libraries, also written in JS.  
+
 	DOM Methods and Properties are a part of it.
 		Can interact with JS.
 	Timers
 	Fetch
 	
-#### JS  
+## JS  
+
 	High-level  
 		Developer does NOT have to worry about resources, everything happens automatically
 		But the programs are not so fast and optimised as low-level programs (like C).
@@ -63,7 +70,8 @@ This repository contains notes and projects I've made on the JS learning course.
 		By using event loop: takes long running tasks, executes them in the "background", 
 			and puts them back in the main thread once they are finished.
 
-#### JS Engine  
+## JS Engine  
+
 	simply it is a program that executes JS code.  
 		V8 Engine (google chrome, Node js)
 	Contains:  
@@ -96,7 +104,8 @@ This repository contains notes and projects I've made on the JS learning course.
 		|
 		...
 		
-### JS Runtime in the browser  
+## JS Runtime in the browser 
+
 - JS Engine
 - WEB APIs (in Browser)  
 		DOM, Timers, Fetch API, ...
@@ -107,7 +116,8 @@ This repository contains notes and projects I've made on the JS learning course.
 - Event loop  
 		Takes the callback function from the callback queue and puts them in the call stack.
 
-### Execution  
+## Execution  
+
 	Creation of global execution context.
 	Execution of top-level code.
 	Execution of functions and waiting for callbacks (ex.: click event).
@@ -119,6 +129,7 @@ This repository contains notes and projects I've made on the JS learning course.
 		this keyword
 
 ### Scope chain  
+
 	Scoping: How our program's variables are organized and accessed by the JS enjine.
 	Lexical scoping: Scoping is controlled by placement of functions and blocks in the code.
 	Scope: Space or environment in which a certain varible is declared. 
@@ -142,6 +153,7 @@ This repository contains notes and projects I've made on the JS learning course.
 		Order in which functions were CALLED.
 	
 ### Variable environment  
+
 	Hoisting: Makes some types of variables sccessible/usable in the code before they are actually declered.
 		"Variables lifted to the top of their scope."
 		Before execution, code is scanned for variable declarations, and for each variablee, 
@@ -167,9 +179,10 @@ Takes the value of (points to) the "owner" of the function in which the *this* k
 
 ### arguments keyword  
 
-arrow function does not have this keyword
+arrow function does not have *this* keyword
 	
-### Primitives VS. Objects (Reference Types)  
+## Primitives VS. Objects (Reference Types)  
+
 	Primitives  
 		Number
 		String
@@ -194,9 +207,9 @@ arrow function does not have this keyword
 	
 	Object.assign({}, copied_varible)	(except a nested objects)
 
-### IIFE - Immedeately Invoked Function Expressions  
+## IIFE - Immedeately Invoked Function Expressions  
 
-### Closures  	
+## Closures  	
 	is the closed-over varible environment of the execution context in which a function was created,
 		even after that execution context is gone.
 	Happens automatically in sertain situations.
@@ -206,7 +219,7 @@ arrow function does not have this keyword
 Splice - mutates original Array. Delete selected elements.  
 Sort - mutates original Array and works alphabetically.  
 
-### Numbers
+## Numbers
 
 Rounding decimals 
 
@@ -219,12 +232,14 @@ BIG int - reg. number + 'n' at the end.
 	Don't mix with regular numbers.  
 	`Math` doesn't work with bigint.  
 
+	Number.parseFloat or Number.parseInt
 
-### Dates and Times
+
+## Dates and Times
 
 Months start from 0.  
 
-#### Internationalization
+### Internationalization
 
 Intl  
 
@@ -232,10 +247,150 @@ Intl
 	
 			 day, month, year, ...  
 
-#### Timers
+### Timers
 
 Timeout in ms.  
 
 setTimeout  
 setInterval  
+
+## Advanced DOM and Events
+
+- Allows to make JS interact with the browser;  
+- We can:
+	* write JS to create, modify and delete HTML elements;
+	* set style, classes and attributes;
+	* listen and respond to events;
+- DOM tree is generated from an HTML document, which we can then interact with;
+- DOM is a very complex API that contains lots of methods and properties to interact with the DOM tree.  
+
+### Selecting, creating and deleting  
+
+#### Selecting
+	document.documentElement
+	document.head
+
+	document.querySelector(All)	=> NodeList
+	document.getElementById
+	document.getElementsByTagName => Live HTMLCollection
+	document.getElementsByClassname => Live HTMLCollection
+	document.querySelectorAll('img[data-src]') - selects all the images which have the property 'data-src'
+
+#### Creating and inserting
+	.insertAdjacentHTML
+
+	const message = document.createElement('div');
+	message.classList.add('cookie-message');
+	message.textContent = 'Some text';
+	message.innerHTML = '<button>Got it</button>';
+	header.prepend(message);  // adds element as the first child of header
+	header.append(message.cloneNode(true));  // adds copy of the element as the last child of header
+	header.before(message);
+	header.after(message);
+
+#### Deleting
+	message.remove();
+	message.parentElement.removeChild(message);
+
+### Styles and Attributes
+
+	getComputedStyle(message).color;
+	document.documentElement.style.setProperty('--color-primary', 'orangered');
+
+	message.src => absolute value
+	message.getAttribute('src') => like in the HTML code
+
+	// Data attributes like *data-*version-number
+	message.dataset.versionNumber
+
+### Smooth scrolling
+	getBoundingClientRect - relative to visible viewport
+	We need a current scroll absolute position to the document: window.pageYOffset and pageXOffset!
+		current position + current scroll
+
+	Modern way: object.scrollIntoView
+
+### Types of Events and Event Handlers
+	h1.addEventListener('mouseenter', function (e) {});
+	h1.onmouseenter = function (e) {};						- old school
+
+HTML variant (old school)  
+	<h1 onclick="alert('HTML alert')">
+
+#### Event propagation (Bubbling and Capturing)
+Click event from document => (capturing phase) => to Target (target phase) =>  
+When event happens => goes back to event root (bubbling phase) through all parent elements with their event listeners!  
+
+Target - element where the event happens  
+Current target - the parent element where the event bubbles  
+
+	e.stopPropagation();  // not a good idea, in general
+
+#### DOM Traversing
+Going downwards: child  
+
+	const child = h1.querySelectorAll(".highlight");
+	const directChild1 = h1.childNodes;
+	const directChild2 = h1.children;
+	h1.firstElementChild.style.color = "white";
+	h1.lastElementChild.style.color = "orangered";
+
+Going upwards: parents  
+
+	const parent = h1.parentNode;
+	const parent2 = h1.parentElement;
+
+Not a direct parent  
+
+	h1.closest(".header").style.background = "var(--gradient-secondary)";
+
+Sideways: siblings  
+
+	const siblingElLeft = h1.previousElementSibling;
+	const siblingElRight = h1.nextElementSibling;
+	const siblingLeft = h1.previousSibling;
+	const siblingRight = h1.nextSibling;
+
+All siblings  
+
+	const allSiblings = h1.parentElement.children;
+
+#### Intersection Observer API
+
+	new IntersectionObserver(obsCallback, obsOptions)
+
+	const obsOptions = {
+		root: null,
+		threshold: 0,
+		rootMargin: `-10px`,
+	}
+
+	const obsCallback = function (entries, observer) {}; 
+
+	observer.unobserve(entry.target);
+
+#### Lifecycle DOM Events
+
+*DOMContentLoaded* - fired as soon as the HTML is completely parsed. Not wait for images and other external resources.  
+
+*load* - fired by the *window* as soon as not only the HTML is parsed but also all images and external resources.  
+
+*beforeunload* - fired by the *window* before user is about to leave the page.  
+
+### Script loading
+
+	Regular		HEAD		Parsing HTML | Waiting... 			| Finish parsing HTML
+										 | Fetch script Execute |
+				BODY END 	Parsing HTML | Fetch script Execute
+
+	async		HEAD 		Parsing HTML | Waiting | Finish parsing HTML
+							Fetch script | Execute |
+
+	defer 		HEAD 		Parsing HTML | Execute
+							Fetch script 
+
+Using *async* and *defer* at the end of the body makes no sense.  
+
+Use *async* for 3-rd-party scripts where order doen't matter (Google Analytics).  
+Use *defer* when the order matters, including a library.  
 
