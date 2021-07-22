@@ -379,15 +379,15 @@ All siblings
 
 ### Script loading
 
-	Regular		HEAD		Parsing HTML | Waiting... 			| Finish parsing HTML
-										 | Fetch script Execute |
-				BODY END 	Parsing HTML | Fetch script Execute
+	Regular	| HEAD | Parsing HTML | Waiting...           | Finish parsing HTML
+	                              | Fetch script Execute |
+	        | BODY END | Parsing HTML | Fetch script Execute
 
-	async		HEAD 		Parsing HTML | Waiting | Finish parsing HTML
-							Fetch script | Execute |
+	async | HEAD | Parsing HTML | Waiting | Finish parsing HTML
+	               Fetch script | Execute |
 
-	defer 		HEAD 		Parsing HTML | Execute
-							Fetch script 
+	defer | HEAD | Parsing HTML | Execute
+	               Fetch script 
 
 Using *async* and *defer* at the end of the body makes no sense.  
 
