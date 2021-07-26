@@ -394,3 +394,37 @@ Using *async* and *defer* at the end of the body makes no sense.
 Use *async* for 3-rd-party scripts where order doen't matter (Google Analytics).  
 Use *defer* when the order matters, including a library.  
 
+## OOP in JavaScript
+
+**Prototype** as Class.  
+- Objects are **linked** to a prototype object.  
+- **Prototypal inheritance**: The prototype contains methods (behavior) that are **accessible to all objects linked to that prototype**;  
+- Behavior is **delegated** to the linked prototype object.  
+
+3 ways of implementing prototypal inheritance:  
+ * Constructor functions
+ * ES6 Classes
+  - Modern way, but works like constructor functions
+ * Object.create()
+  - Easiest way of linking an object to a prototype object.
+  
+### Constructor functions  
+
+Arrow function is not work as a constructior function (it doesn't have a *this* keyword)!  
+To call this functions we use *new* key word.  
+
+The *new* operator steps:
+1. A new {} empty object is created.
+2. *this* keyword in constructor function call is set to the new object.
+3. The newly created object is linked (__proto__ property) to the constructor function's prototype property.
+`__proto__ === SomeObject.prototype`
+4. The new object is automatically returned from the constuctor function call.
+
+Never create a method directly inside a constructor function. This would be terrible for the perfomance of our code.
+Add methods to prototype property.
+
+### Prototypes
+.prototypeOfLinkedObjects  
+
+**Prototype chain** is a series of links between objects, linked through prototypes (Similar to the scope chain).  
+
