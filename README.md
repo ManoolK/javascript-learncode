@@ -416,11 +416,11 @@ To call this functions we use *new* key word.
 The *new* operator steps:
 1. A new {} empty object is created.
 2. *this* keyword in constructor function call is set to the new object.
-3. The newly created object is linked (__proto__ property) to the constructor function's prototype property.
+3. The newly created object is linked (__proto__ property) to the constructor function's prototype property.  
 `__proto__ === SomeObject.prototype`
 4. The new object is automatically returned from the constuctor function call.
 
-Never create a method directly inside a constructor function. This would be terrible for the perfomance of our code.
+Never create a method directly inside a constructor function. This would be terrible for the perfomance of our code.  
 Add methods to prototype property.
 
 ### Prototypes
