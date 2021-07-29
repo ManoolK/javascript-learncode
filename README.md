@@ -410,8 +410,8 @@ Use *defer* when the order matters, including a library.
   
 ### Constructor functions  
 
-Arrow function is not work as a constructior function (it doesn't have a *this* keyword)!  
-To call this functions we use *new* key word.  
+Arrow function is not work as a constructor function (it doesn't have *this* keyword)!  
+To call these functions we use *new* key word.  
 
 The *new* operator steps:
 1. A new {} empty object is created.
@@ -428,3 +428,19 @@ Add methods to prototype property.
 
 **Prototype chain** is a series of links between objects, linked through prototypes (Similar to the scope chain).  
 
+### ES6 Classes
+
+class expression `const Person = class {}`  
+class declaration `class Person {}`  
+
+All of the methods that we write in the class outside of the `constructor()` will be on the prototype of the object.  
+
+1. Classes are NOT hoisted.
+2. Classes are first-class citizens.
+3. Classes are executed in strict mode.
+
+Getters and Setter are very useful in data validation.  
+
+### Object.create
+We can set the prototype of objects manually to any object that we want.  
+In this case we don't need any constructor function at all.  

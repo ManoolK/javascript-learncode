@@ -26,3 +26,55 @@ Person.prototype.species = 'Homo Sapiens';
 
 // console.log(oxana.hasOwnProperty('firstName'));
 // console.log(oxana.hasOwnProperty('species'));
+
+// add static method
+Person.hey = function () {
+  console.log('Hey there!');
+};
+
+// ES6 Classes
+
+class PersonCl {
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+
+  get age() {
+    return 2037 - this.birthYear;
+  }
+
+  set fullName(name) {
+    if (name.includes(' ')) this._fullName = name;
+    else alert(`${name} is not a full name!`);
+  }
+
+  get fullName() {
+    return this._fullName;
+  }
+
+  static hey() {
+    console.log('Hey there!');
+  }
+}
+
+const jessica = new PersonCl('Jessica Davis', 1996);
+console.log(jessica.age);
+
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const steven = Object.create(PersonProto);
+steven.init('Steven', 1979);
