@@ -423,6 +423,14 @@ The *new* operator steps:
 Never create a method directly inside a constructor function. This would be terrible for the perfomance of our code.  
 Add methods to prototype property.
 
+#### Inheritance
+
+`const Child = function(arg1, arg2, arg3) {
+	Parent.call(this, arg1, arg2);
+	this.prop3 = arg3;
+};
+Child.prototype = Object.create(Parent.prototype);`
+
 ### Prototypes
 .prototypeOfLinkedObjects  
 
@@ -441,6 +449,12 @@ All of the methods that we write in the class outside of the `constructor()` wil
 
 Getters and Setter are very useful in data validation.  
 
+#### Inheritance
+
+
+
 ### Object.create
 We can set the prototype of objects manually to any object that we want.  
 In this case we don't need any constructor function at all.  
+
+

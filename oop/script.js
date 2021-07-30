@@ -1,6 +1,8 @@
 'use strict';
 
-// Constructor function
+//////////////////////////////////////////////
+// Constructor functions
+
 const Person = function (firstName, birthYear) {
   // Instance properties
   this.firstName = firstName;
@@ -32,6 +34,24 @@ Person.hey = function () {
   console.log('Hey there!');
 };
 
+// Inheritance
+const Student = function (firstName, birthYear, course) {
+  Person.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+Student.prototype = Object.create(Person.prototype);
+Student.prototype.constructor = Student;
+
+Student.prototype.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+const mike = new Student('Mike', 2020, 'Computer Science.');
+// mike.introduce();
+// mike.calcAge();
+
+//////////////////////////////////////////////
 // ES6 Classes
 
 class PersonCl {
