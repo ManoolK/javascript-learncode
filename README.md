@@ -425,11 +425,13 @@ Add methods to prototype property.
 
 #### Inheritance
 
-`const Child = function(arg1, arg2, arg3) {
+```javascript
+const Child = function(arg1, arg2, arg3) {
 	Parent.call(this, arg1, arg2);
 	this.prop3 = arg3;
 };
-Child.prototype = Object.create(Parent.prototype);`
+Child.prototype = Object.create(Parent.prototype);
+```
 
 ### Prototypes
 .prototypeOfLinkedObjects  
@@ -451,10 +453,35 @@ Getters and Setter are very useful in data validation.
 
 #### Inheritance
 
-
+```javascript
+class Child extends Parent {
+	constructor(arg1, arg2, arg3) {
+		super(arg1, arg2);
+		this.prop3 = arg3;
+	}
+}
+```
 
 ### Object.create
 We can set the prototype of objects manually to any object that we want.  
 In this case we don't need any constructor function at all.  
 
+#### Inheritance
 
+```javascript
+const ChildProto = Object.create(ParentProto);
+ChildProto.init = function (arg1, arg2, arg3) {
+  ParentProto.init.call(this, arg1, arg2);
+  this.prop3 = arg3;
+};
+const inst = Object.create(ChildProto);
+```
+
+### Encapsulation
+
+Class fields:  
+- public fields (on the instance not on the prototypes)
+- private fields (# makes fields private)
+- public methods
+- private methods (#)
+- static version
