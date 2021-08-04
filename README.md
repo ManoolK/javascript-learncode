@@ -329,11 +329,13 @@ Current target - the parent element where the event bubbles
 #### DOM Traversing
 Going downwards: child  
 
+```javascript
 	const child = h1.querySelectorAll(".highlight");
 	const directChild1 = h1.childNodes;
 	const directChild2 = h1.children;
 	h1.firstElementChild.style.color = "white";
 	h1.lastElementChild.style.color = "orangered";
+```
 
 Going upwards: parents  
 
@@ -357,6 +359,7 @@ All siblings
 
 #### Intersection Observer API
 
+```javascript
 	new IntersectionObserver(obsCallback, obsOptions)
 
 	const obsOptions = {
@@ -368,6 +371,7 @@ All siblings
 	const obsCallback = function (entries, observer) {}; 
 
 	observer.unobserve(entry.target);
+```
 
 #### Lifecycle DOM Events
 

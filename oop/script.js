@@ -84,21 +84,55 @@ class PersonCl {
 
 // Inheritance
 class StudentCl extends PersonCl {
-  constructor(fullName, birthYear, course) {
-    super(fullName, birthYear);
-    this.course = course;
+  university = 'University of Michigan'; // Public field
+  #studyHours = 0; // Private fields
+  #course;
+  static numSubjects = 10; // Static public field (available only on the class)
+
+  // Constructor method
+  constructor(fullName, birthYear, startYear, course) {
+    super(fullName, birthYear); // Call to Parent class. Before *this*!
+    this.startYear = startYear; // Instance property
+    this.#course = course; // Redefining private field
   }
 
+  // Public method
   introduce() {
     console.log(`My name is ${this.fullName} and I study ${this.course}`);
+  }
+
+  study(h) {
+    this.#makeCoffe(); // Referencing private field and method
+    this.#studyHours += h;
+  }
+
+  // Private method
+  #makeCoffe() {
+    return 'Here is a coffe for you';
+  }
+
+  // Getter method
+  get testScore() {
+    return this._testScore;
+  }
+
+  // Setter method
+  set testScore(score) {
+    this._testScore = score <= 20 ? score : 0;
+  }
+
+  // Static method
+  static printCurriculum() {
+    console.log(`There are ${this.numSubjects} subjects.`);
   }
 }
 
 const jessica = new PersonCl('Jessica Davis', 1996);
-console.log(jessica.age);
+// console.log(jessica.age);
 
-const martha = new StudentCl('Martha Jones', 2012, 'Computer Science');
-martha.introduce();
+// Creating new onject with *new* operator
+const martha = new StudentCl('Martha Jones', 2000, 2017, 'Computer Science');
+// martha.introduce();
 
 //////////////////////////////////////////////
 // Object.create
@@ -129,7 +163,7 @@ StudentProto.introduce = function () {
 
 const jay = Object.create(StudentProto);
 jay.init('Jay', 2010, 'Computer Science');
-jay.introduce();
+// jay.introduce();
 
 //////////////////////////////////////////////
 // Examples
@@ -147,7 +181,7 @@ class Account {
     // protected property
     this.#pin = pin;
 
-    console.log(`Thanks for opening an account, ${owner}`);
+    // console.log(`Thanks for opening an account, ${owner}`);
   }
 
   // Public methods
@@ -157,15 +191,18 @@ class Account {
 
   deposit(val) {
     this.#movements.push(val);
+    return this; // for chaining methods
   }
 
   withdraw(val) {
     this.deposit(-val);
+    return this;
   }
 
   requestLoan(val) {
     if (this.#approveLoan(val)) {
       this.deposit(val);
+      return this;
     }
   }
 
@@ -184,5 +221,9 @@ acc1.deposit(250);
 acc1.withdraw(140);
 acc1.requestLoan(1000);
 
-console.log(acc1);
-Account.helper();
+// console.log(acc1);
+// Account.helper();
+
+// Chaining methods
+acc1.withdraw(200).deposit(50).requestLoan(25000).withdraw(5000);
+// console.log(acc1.getMovements());
