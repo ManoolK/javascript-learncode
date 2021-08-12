@@ -7,6 +7,7 @@ const inputDistance = document.querySelector('.form__input--distance');
 const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
+const contextMenu = document.getElementById('contextMenu');
 
 class Workout {
   date = new Date();
@@ -86,6 +87,8 @@ class App {
     form.addEventListener('submit', this._newWorkout.bind(this));
     inputType.addEventListener('change', this._toggleElevationField);
     containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
+    containerWorkouts.oncontextmenu = this._rightClick.bind(this);
+    document.onclick = this._hideMenu;
   }
 
   _getPosition() {
@@ -195,6 +198,10 @@ class App {
     this._setLocalStorage();
   }
 
+  _getWorkout(workoutEl) {
+    return this.#workouts.find(work => work.id === workoutEl.dataset.id);
+  }
+
   _renderWorkoutMarker(workout) {
     L.marker(workout.coords)
       .addTo(this.#map)
@@ -268,10 +275,8 @@ class App {
     const workoutEl = e.target.closest('.workout');
     if (!workoutEl) return;
 
-    const workout = this.#workouts.find(
-      work => work.id === workoutEl.dataset.id
-    );
-    console.log(workout);
+    const workout = this._getWorkout(workoutEl);
+    // console.log(workout);
     this.#map.setView(workout.coords, this.#mapZoomLevel, {
       animate: true,
       pan: { duration: 1 },
@@ -299,6 +304,41 @@ class App {
   reset() {
     localStorage.removeItem('workouts');
     location.reload();
+  }
+
+  _hideMenu() {
+    contextMenu.style.display = 'none';
+  }
+
+  _rightClick(e) {
+    const workoutEl = e.target.closest('.workout');
+    if (!workoutEl) return;
+    e.preventDefault();
+
+    if (contextMenu.style.display === 'block') {
+      this._hideMenu();
+      return;
+    } else {
+      contextMenu.style.display = 'block';
+      contextMenu.style.left = e.pageX + 'px';
+      contextMenu.style.top = e.pageY + 'px';
+    }
+
+    const workout = this._getWorkout(workoutEl);
+    contextMenu.addEventListener('click', this._contextMenuAction, true);
+  }
+
+  _contextMenuAction(e) {
+    const actionEl = e.target.closest('.action');
+    if (!actionEl) return;
+    const action = actionEl.dataset.id;
+    if (action === 'edit') {
+      // Edit
+    } else if (action === 'delete') {
+      // Delete
+    } else if (action === 'deleteAll') {
+      // Delete all
+    }
   }
 }
 
