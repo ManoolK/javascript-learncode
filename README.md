@@ -497,3 +497,28 @@ Asynchronous code is executed **after a task that runs in the "background" finis
 Asynchronous code is **non-blocking**.  
 Execution doesn't wait for an asynchronous task to finish its work.  
 Callback functions alone do **NOT** make code asynchtonous!  
+
+### AJAX
+**A**synchronous **J**avaScript **A**nd **X**ML allows us to communicate with remote web servers in an **asynchronous way**. With AJAX calls, we can **request data** from web servers dynamically.  
+
+### Promises
+An object that is used as a placeholder for the future result of an asynchronous operation.  
+A container for an asynchronously delivered value.  
+A container for a future value.  
+We no longer need to rely on events and callbacks passed into asynchronous functions to handle asynchronous results. Instead of nesting callbacks, we can **chain promises** for a sequence of asynchronous operations: **escaping callback hell**.  
+
+States:  
+PENDING (Before the future calue is available)  
+|  
+ASYNC TASK  
+|  
+SETTLED (Asynchronous task **has finished**)
+|  
+1. FULFILLED (Success! The value is now **available**)  
+2. REJECTED (An **error** happened)  
+
+We are able **handle** these different states in our code!  
+
+BUILD PROMISE (E.g. Fetch API returns promise)  
+|
+CONSUME PROMISE (When we already have a promise. E.g. promise returned from Fetch API)  
