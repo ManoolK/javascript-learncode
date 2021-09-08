@@ -4,6 +4,17 @@ const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
 
 ///////////////////////////////////////
+// Test Event loop
+// console.log('Test start'); // 1
+// setTimeout(() => console.log('0 sec timeput'), 0); // 5 callback queue
+// Promise.resolve('resolved promice 1').then(res => console.log(res)); // 3 microtasks queue
+// Promise.resolve('resolved promice 2').then(res => {
+//   for (let i = 0; i < 1000000000; i++) {}
+//   console.log(res);
+// }); // 4 microtasks queue
+// console.log('Test end'); // 2
+
+///////////////////////////////////////
 
 const renderError = function (msg) {
   countriesContainer.insertAdjacentText('beforeend', msg);
@@ -108,8 +119,41 @@ const getCountryData2 = function (country) {
     });
 };
 
-btn.addEventListener('click', function () {
-  // getCountryData2('russia');
-  getCountryData2('australia');
-  // getCountryData2('jhfdtyjkhjkh');
+// btn.addEventListener('click', function () {
+//   // getCountryData2('russia');
+//   getCountryData2('australia');
+//   // getCountryData2('jhfdtyjkhjkh');
+// });
+
+///////////////////////////////////////
+
+const lotteryPromise = new Promise(function (resolve, reject) {
+  console.log('Lottery draw is happening 🔮');
+  setTimeout(function () {
+    if (Math.random() >= 0.5) {
+      resolve('You WIN 💰');
+    } else {
+      reject(new Error('You lost your money 💩'));
+    }
+  }, 2000);
 });
+
+lotteryPromise.then(res => console.log(res)).catch(err => console.log(err));
+
+// Promisifying setTimeout
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+wait(2)
+  .then(() => {
+    console.log('I waited for 2 seconds');
+    return wait(1);
+  })
+  .then(() => console.log('I waited for 1 second'));
+
+Promise.resolve('abc').then(res => console.log(res));
+Promise.reject(new Error('We have a Problem!')).catch(err => console.log(err));
+
+///////////////////////////////////////

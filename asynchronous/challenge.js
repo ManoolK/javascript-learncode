@@ -67,8 +67,19 @@ const getCountryData2 = function (country) {
 ///////////////////////////////////////
 // Challenge #1
 
-const whereAmI = function (lat, lng) {
-  fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+const whereAmI = function () {
+  getPosition()
+    .then(pos => {
+      const { latitude: lat, longitude: lng } = pos.coords;
+
+      return fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+    })
     .then(response => {
       if (!response.ok)
         throw new Error(`${response.status}: Too many requests!`);
@@ -86,6 +97,4 @@ const whereAmI = function (lat, lng) {
     });
 };
 
-btn.addEventListener('click', function () {
-  whereAmI(52.508, 13.381);
-});
+btn.addEventListener('click', whereAmI);

@@ -522,3 +522,6 @@ We are able **handle** these different states in our code!
 BUILD PROMISE (E.g. Fetch API returns promise)  
 |
 CONSUME PROMISE (When we already have a promise. E.g. promise returned from Fetch API)  
+
+**Microtasks queue**. Like callback queue, but for callbacks related to **promises**. Has **priority** over regular callback queue!  
+
