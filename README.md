@@ -525,3 +525,11 @@ CONSUME PROMISE (When we already have a promise. E.g. promise returned from Fetc
 
 **Microtasks queue**. Like callback queue, but for callbacks related to **promises**. Has **priority** over regular callback queue!  
 
+### Async/Await
+
+```javascript
+ const myFunc = async function (attr) {
+  const perem = await fetch(`link`);
+  if(!perem.ok) throw new Error(msg);
+};
+```
