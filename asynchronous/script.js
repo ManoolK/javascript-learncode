@@ -166,6 +166,8 @@ const getPosition = function () {
 };
 
 const whereAmI = async function () {
+  let outStr = '';
+
   try {
     // Geolocation
     const position = await getPosition();
@@ -183,12 +185,45 @@ const whereAmI = async function () {
     if (!res.ok) throw new Error(`Problem getting country!`);
     const data = await res.json();
     renderCountry(data[0]);
+    outStr = `You're in ${dataGeo.city}, ${dataGeo.country}`;
   } catch (err) {
-    console.log(`${err} 🔥🔥🔥`);
-    renderError(`🔥🔥🔥 ${err.message}`);
+    outStr = `🔥🔥🔥 ${err.message}`;
+    renderError(outStr);
+    throw err;
+  } finally {
+    countriesContainer.style.opacity = 1;
+    return outStr;
   }
-  countriesContainer.style.opacity = 1;
 };
 
-whereAmI();
-console.log('First');
+console.log('1: Will get location');
+// whereAmI()
+//   .then(city => console.log(`2: ${city}`))
+//   .catch(err => console.error(`2: ${err}`))
+//   .finally(() => console.log('3: Finished getting location'));
+
+(async function () {
+  try {
+    const city = await whereAmI();
+    console.log(`2: ${city}`);
+  } catch (err) {
+    console.log(`2: ${err}`);
+  } finally {
+    console.log('3: Finished getting location');
+  }
+})();
+
+// running in parallel
+const get3Countries = async function (c1, c2, c3) {
+  try {
+    const data = await Promise.all([
+      getJSON(`https://restcountries.eu/rest/v2/name/${c1}`),
+      getJSON(`https://restcountries.eu/rest/v2/name/${c2}`),
+      getJSON(`https://restcountries.eu/rest/v2/name/${c3}`),
+    ]);
+    console.log(data.map(d => d[0].capital));
+  } catch (err) {
+    console.error(err);
+  }
+};
+get3Countries('russia', 'canada', 'tanzania');
