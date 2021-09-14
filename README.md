@@ -533,3 +533,8 @@ CONSUME PROMISE (When we already have a promise. E.g. promise returned from Fetc
   if(!perem.ok) throw new Error(msg);
 };
 ```
+
+### Promise Combinators: race, allSettled and any
+race - the first in time  
+allSettled - even if one rejected  
+any - first fulfilled  
