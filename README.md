@@ -538,3 +538,42 @@ CONSUME PROMISE (When we already have a promise. E.g. promise returned from Fetc
 race - the first in time  
 allSettled - even if one rejected  
 any - first fulfilled  
+
+## Modules
+
+**Develpment** (modules and 3rd-party package)  
+**Build process** (bundling - join all modules into one file => transpiling/polyfilling - convert modern JavaScript back to ES5 *BABEL*) *webpack* or *Parcel*  
+**Production** (JavaScript bundle)  
+
+**Module**:  
+* Reusable piece of code that **encapsulates** implementation details;
+* Usually a **standalone file**, but it doesn't have to be.
+
+Advatages:  
+* **Compose software**: Modules are small building blocks that we put together to build complex applications;  
+* **Isolate components**: Modules can be developed in isolation without thinking about the entire codebase;  
+* **Abstract code**: Implement low-level code in modules and import these abstractions into other modules;  
+* **Organized code**: Modules naturally lead to a more organized codebase;  
+* **Reuse code**: Modules allow us to easily reuse the same code, even across multiple projects.  
+
+ES6 Modules VS. SCRIPT:  
+1. **Top-level variables** ES6: Scoped to module; SCPT: Global
+2. **Default mode** ES6: Strict mode; SCPT: "Sloppy" mode
+3. **Top-level *this*** ES6: undefined; SCPT: window object
+4. **Imports and exports** ES6: YES; SCPT: NO
+5. **HTML linking** ```ES6: <script type="module">; SCPT: <script>```  
+6. **File downloading** ES6: Asynchronous; SCPT: Synchronous  
+
+### CommonJS Modules
+
+work in node js.  
+```JavaScript
+// Export
+export.myFunction = function(arg1, arg2) {
+	console.log(arg1, arg2);
+};
+
+// Import
+const { myFunction } = require('./moduleFile.js');
+```
+
