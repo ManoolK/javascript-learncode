@@ -577,3 +577,23 @@ export.myFunction = function(arg1, arg2) {
 const { myFunction } = require('./moduleFile.js');
 ```
 
+### Bundling with Parcel and NPM Script
+
+localy
+```terminal
+npm i parcel --save-dev
+```
+
+Run for local installations: 
+```terminal
+npx parcel index.html // initial entrance
+```
+
+Apply changes without page reloading
+```javascript
+if(module.hot) {
+	module.hot.accept()
+}
+```
+  
+

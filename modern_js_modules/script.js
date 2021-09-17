@@ -10,43 +10,64 @@ console.log('Importing module');
 // ShoppingCart.addToCart('bread', 5);
 // console.log(ShoppingCart.totalPrice, ShoppingCart.tq);
 
-// import add, { totalPrice as price, cart } from './shoppingCart.js';
-// add('pizza', 2);
-// add('bread', 5);
-// add('apples', 3);
-// console.log(price);
-// console.log(cart);
+import add, { totalPrice as price, cart } from './shoppingCart.js';
+add('pizza', 2);
+add('bread', 5);
+add('apples', 3);
+console.log(price);
+console.log(cart);
 
 // Import the default export
 // import add from './shoppingCart.js';
 // add('pizza', 2);
 
-const ShoppingCart2 = (function () {
-  const cart = [];
-  const shoppingCost = 10;
-  const totalPrice = 237;
-  const totalQuantity = 23;
+// const ShoppingCart2 = (function () {
+//   const cart = [];
+//   const shoppingCost = 10;
+//   const totalPrice = 237;
+//   const totalQuantity = 23;
 
-  const addToCart = function (product, quantity) {
-    cart.push({ product, quantity });
-    console.log(
-      `${quantity} ${product} added to cart (shipping cost is ${shoppingCost})`
-    );
-  };
+//   const addToCart = function (product, quantity) {
+//     cart.push({ product, quantity });
+//     console.log(
+//       `${quantity} ${product} added to cart (shipping cost is ${shoppingCost})`
+//     );
+//   };
 
-  const orderStock = function (product, quantity) {
-    console.log(`${quantity} ${product} ordered from supplier`);
-  };
+//   const orderStock = function (product, quantity) {
+//     console.log(`${quantity} ${product} ordered from supplier`);
+//   };
 
-  return {
-    addToCart,
-    cart,
-    totalPrice,
-    totalQuantity,
-  };
-})();
+//   return {
+//     addToCart,
+//     cart,
+//     totalPrice,
+//     totalQuantity,
+//   };
+// })();
 
-ShoppingCart2.addToCart('bread', 5);
-ShoppingCart2.addToCart('apples', 3);
-console.log(ShoppingCart2);
-console.log(ShoppingCart2.shoppingCost);
+// ShoppingCart2.addToCart('bread', 5);
+// ShoppingCart2.addToCart('apples', 3);
+// console.log(ShoppingCart2);
+// console.log(ShoppingCart2.shoppingCost);
+
+// import cloneDeep from '/node_modules/lodash-es/cloneDeep.js';
+import cloneDeep from 'lodash-es';
+
+const state = {
+  cart: [
+    { product: 'bread', quantity: 5 },
+    { product: 'pizza', quantity: 3 },
+  ],
+  user: { loggedIn: true },
+};
+
+const stateClone = Object.assign({}, state); // doesn't work as a copy!
+const stateDeepClone = cloneDeep(state);
+console.log(stateClone);
+state.user.loggedIn = false;
+console.log(stateDeepClone);
+
+if (module.hot) {
+  module.hot.accept();
+}
