@@ -2,7 +2,6 @@
   "name": "modern_js_modules",
   "version": "1.0.0",
   "description": "",
-
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html"
@@ -11,7 +10,9 @@
   "author": "Oxana",
   "license": "ISC",
   "dependencies": {
-    "lodash-es": "^4.17.21"
+    "core-js": "^3.18.0",
+    "lodash-es": "^4.17.21",
+    "regenerator-runtime": "^0.13.9"
   },
   "devDependencies": {
     "parcel": "^2.0.0-rc.0"

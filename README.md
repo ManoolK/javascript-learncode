@@ -596,4 +596,24 @@ if(module.hot) {
 }
 ```
   
+## Modern and clean code
+
+### OOP
+* Use ES6 classes
+* Encapsulate data and **don't mutate** it from outside the class
+* Implement method chaining
+* Do **not** use arrow functions as methods (in regular objects)  
+
+### Avoid nested code
+* Use early `return` (guard clauses)
+* Use ternary (conditional) or logical operators instead of `if`
+* Use multiple `if` instead of `if/else-if`
+* Avoid `for` loops, use array methods instead
+* Avoid callback-based asynchronous APIs  
+
+### Asynchronous code
+* Consume promises with async/await for best readability
+* Whenever possible, run promises in **parallel** (`Promise.all`)
+* Handle errors and promise rejections  
+
 
