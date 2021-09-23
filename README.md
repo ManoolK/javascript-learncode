@@ -616,4 +616,32 @@ if(module.hot) {
 * Whenever possible, run promises in **parallel** (`Promise.all`)
 * Handle errors and promise rejections  
 
+### Declarative code
+
+The "What to do" principal.  
+
+### Functional programming
+
+* Declarative programming paradigm
+* Based on the idea of writing software by combining many **pure functions**, avoiding **side effects** and **mutating** data.  
+
+* **Side effect**: Modification (mutation) of any data **outside** of the function (mutating external varibles, logging to console, writing to DOM, etc.)  
+
+* **Pure function**: Function without side effects. Does not depend on external varibles. **Given the same inputs, always returns the same outputs**.  
+
+* **Immutability**: State (data) is **never** modified! Instead, state is **copied** and the copy is mutated and returned.  
+
+Examples: React, Redux  
+
+**TECHNIQUES**
+- Try to avoid data mutations
+- Use built-in methods that don't produce side effects
+- Do data transformations with methods such as `.map()`, `.filter()` and `.reduce()`
+- Try to avoid side effects in functions: this is of cource not always possible!
+
+**DECLARATIVE SYNTAX**
+- Use array and object destructuring
+- Use the spread operator `(...)`
+- Use the ternary (conditional) operator
+- Use template literals
 
