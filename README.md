@@ -582,6 +582,7 @@ const { myFunction } = require('./moduleFile.js');
 localy
 ```terminal
 npm i parcel --save-dev
+npm i parcel@next -D  // install a better version
 ```
 
 Run for local installations: 
