@@ -8,6 +8,7 @@ This repository contains notes and projects I've made on the JS learning course.
 [Project #4. Bankist App.](/project_bankist)   
 [Project #5. Bankist Website.](/project_bankist_website)   
 [Project #6. Mapty.](/project_mapty)  
+[Project #7. Forkify.](/project_forkify)
 
 ## for VS Code   
 
@@ -595,6 +596,15 @@ Apply changes without page reloading
 if(module.hot) {
 	module.hot.accept()
 }
+```  
+
+To support all old browsers
+```terminal
+npm i core-js regenerator-runtime
+```
+```javascript
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 ```
   
 ## Modern and clean code
@@ -645,4 +655,33 @@ Examples: React, Redux
 - Use the spread operator `(...)`
 - Use the ternary (conditional) operator
 - Use template literals
+
+## Architecture
+
+Structure, Maintainability, Expandability  
+
+- We can create our own architecture.  
+- We can use a well-established architecture pattern like MVC (model-view-controller), MVP (model view presenter), Flux, etc.  
+- We can use a framework like React, Angular, Vue, Svelte, etc.  
+
+### Components
+
+* Business logic
+	- Code that **solves the actual business problem**;
+	- Directly related to what business does and what it needs;
+	- **Example**: sending messages, storing transactions, calculating taxes, ...
+* State
+	- Essentially **stores all the data** about the application;
+	- Should be the "single source of truth";
+	- UI should be kept in sync with the state;
+	- State libraries exist. (Readux, Mapex)
+* HTTP Library
+	- Responsible for making and receiving AJAX requests;
+	- Optional but almost always necessary in real-world apps.
+* Application logic (Router)
+	- Code that is only concerned about the **implementation of application itself**;
+	- Handles navigation and UI events.
+* Presentation logic (UI Layer)
+	- Code that is concerned about the **visible part** of the application;
+	- Essentially displays application state.
 
