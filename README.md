@@ -685,3 +685,8 @@ Structure, Maintainability, Expandability
 	- Code that is concerned about the **visible part** of the application;
 	- Essentially displays application state.
 
+### Event handling in MVC: Publisher-subscriber pattern
+
+- Code that knows when to react: PUBLISHER  
+- Code that wants to react: SUBSCRIBER  
+- Subscribe to publisher by passing in the subscriber function  
